@@ -7,4 +7,8 @@
 </div>
 
 <div>
+<%= simple_form_for @bookings do |f| %>
+  <%= f.input :destination, collection {"mars", "moon"} %>
+  <%= f.button :submit %>
+<% end %>
 </div>
