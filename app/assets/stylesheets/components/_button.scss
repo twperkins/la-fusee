@@ -1,0 +1,25 @@
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #ff8c4a;
+  transition: 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #ff711f;
+  color: white;
+}
+
+.btn-submit {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #52daac;
+  transition: 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: #00dd93;
+  color: white;
+}
