@@ -4,7 +4,7 @@
 </div>
 <br>
 <br>
-<%= simple_form_for :query do |f| %>
+<%= simple_form_for :query, url: spaceships_path, method: "GET" do |f| %>
   <div class="d-flex">
     <%= f.input :destination, collection: Booking::DESTINATION %>
     <%= f.input :departure, as: :text %>
