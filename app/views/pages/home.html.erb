@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div>
+<%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
+<%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary' %>
+</div>
+<br>
+<br>
+<%= simple_form_for :query do |f| %>
+  <div class="d-flex">
+    <%= f.input :destination, collection: Booking::DESTINATION %>
+    <%= f.input :departure, as: :text %>
+    <%= f.input :number_of_travellers, as: :text %>
+    <%= f.button :submit  %>
+  </div>
+<% end %>
