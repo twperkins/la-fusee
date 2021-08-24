@@ -1,0 +1,15 @@
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/Users/khuthadzo/.rbenv/versions/2.7.3/bin/ruby -I /Users/khuthadzo/.rbenv/versions/2.7.3/lib/ruby/2.7.0 -r ./siteconf20210824-48635-17z5ol8.rb extconf.rb
+creating Makefile
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20210824-48635-9l3xph
