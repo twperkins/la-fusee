@@ -1,6 +1,8 @@
-<h2>Sign up</h2>
-
-<div><%= link_to "Home", root_path %></div>
+<div class="navbar">
+  <h4>La Fusee</h4>
+  <h2>Sign up</h2>
+  <%= link_to "Home", root_path, class: "btn btn-flat" %>
+</div>
 
 <div class="container">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -29,7 +31,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Sign up", class: "btn btn-submit"  %>
     </div>
   <% end %>
 
