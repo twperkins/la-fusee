@@ -22,11 +22,13 @@
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :name,
+                label: "Username",
                 required: true,
                 input_html: { autocomplete: "name" } %>
     <%= f.input :image_url,
-                required: true,
-                input_html: { autocomplete: "image-url" } %>
+                label: "Upload profile picture",
+                as: :file,
+                required: true %>
   </div>
 
   <div class="form-actions">
