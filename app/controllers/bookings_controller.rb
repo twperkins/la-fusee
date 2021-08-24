@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.spaceship = @spaceship
     if @booking.save
-      redirect_to spaceship_path(@spaceship)
+      redirect_to user_path(current_user)
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to spaceships_path
+    redirect_to user_path(current_user)
   end
 
   private
