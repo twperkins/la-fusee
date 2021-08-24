@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :bookings
-  has_many :spacheships
+  has_many :spaceships
   validates :name, :image_url, uniqueness: true, presence: true
 end
