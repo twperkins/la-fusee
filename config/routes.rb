@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :spaceships, only: %i[index show new create edit update destroy] do
     resources :bookings, only: %i[index show new create destroy]
   end
+  get '/bookings', to: 'pages#bookings'
 end
