@@ -1,10 +1,7 @@
-<div class="navbar-lewagon">
-  <h4>La Fusee</h4>
-  <h2>Sign up</h2>
-  <%= link_to "Home", root_path, class: "btn btn-flat" %>
-</div>
+<%= render "devise/shared/navbar_login" %>
 
 <div class="container">
+  <h2>Sign up</h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
@@ -34,6 +31,4 @@
       <%= f.button :submit, "Sign up", class: "btn btn-submit"  %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>
