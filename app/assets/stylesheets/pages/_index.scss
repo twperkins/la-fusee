@@ -1,2 +1,17 @@
 // Import page-specific CSS files here.
 @import "home";
+
+a {
+  color: white;
+}
+
+h6 {
+  color:white;
+
+}
+
+body {
+  background-image: url(https://images.unsplash.com/photo-1590907047706-ee9c08cf3189?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80) ;
+
+background-attachment: fixed;
+}
