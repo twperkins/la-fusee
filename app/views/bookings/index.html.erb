@@ -1,0 +1,15 @@
+<h1>Hello</h1>
+<%# <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" /> %>
+<h2><%= current_user.name %></h2>
+<h2>Upcoming bookings</h2>
+<% current_user.bookings.each do |booking| %>
+  <li><%= booking.passenger_quantity %>
+  <li><%= booking.location %>
+  <li><%= booking.price %>
+  <li><%= booking.arrive%>
+  <li><%= booking.depart%>
+  <%= link_to "Manage booking", booking_path(booking), class: "btn btn-flat" %>
+<% end %>
+<br>
+<%= link_to "Search spaceships", spaceships_path, class: "btn btn-flat" %>
+<%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn btn-flat" %>
