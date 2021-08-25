@@ -2,8 +2,12 @@
   <div class="container">
     <h1>La Fusee</h1>
     <p>space really is just <strong>one small step</strong>...</p>
-    <%= link_to 'Login', new_user_session_path, class: 'btn btn-flat' %>
-    <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-flat' %>
+    <% if session != current_user %>
+      <h3 class="white-text">Welcome <%= current_user[:name] %></h3>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path, class: 'btn btn-flat' %>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-flat' %>
+    <% end %>
   </div>
 </div>
 
