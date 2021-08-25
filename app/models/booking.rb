@@ -1,5 +1,6 @@
 class Booking < ApplicationRecord
-  DESTINATION = %w[mars moon mercury the\ Sun]
+  DESTINATION = %w[Mars Moon Mercury The\ Sun]
+  CAPACITY = %w[2 4 6 8]
   belongs_to :spaceship
   belongs_to :user
   validates :price, :location, :arrive, :depart, :passenger_quantity, presence: true
