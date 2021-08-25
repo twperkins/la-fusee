@@ -3,14 +3,19 @@ class SpaceshipsController < ApplicationController
 
   def index
     @spaceships = Spaceship.all
-     if params[:query].present?
+    if params[:query].present?
       @spaceships = Spaceship.where(capacity: params[:query])
     else
       @spaceships = Spaceship.all
+    end
   end
-end
+
   def show; end
 
+  def garage
+    @spaceships = Spaceship.where(user: current_user)
+  end
+ 
   def new
     @spaceship = Spaceship.new
   end
@@ -36,13 +41,13 @@ end
     redirect_to spaceships_path
   end
 
-    private
+  private
 
-    def spaceship_params
-      params.require(:spaceship).permit(:name, :capacity, :description)
-    end
+  def spaceship_params
+    params.require(:spaceship).permit(:name, :capacity, :description)
+  end
 
-    def set_spaceship
-      @spaceship = Spaceship.find(params[:id])
-    end
+  def set_spaceship
+    @spaceship = Spaceship.find(params[:id])
+  end
 end

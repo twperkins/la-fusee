@@ -1,0 +1,8 @@
+<%= render "devise/shared/navbar" %>
+<ul>
+  <% @spaceships.each do |spaceship| %>
+    <li><%= link_to spaceship.name, spaceship_path(spaceship) %></li>
+  <% end %>
+</ul>
+<br>
+<%= link_to "Add a new spaceship", new_spaceship_path %>
