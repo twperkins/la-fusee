@@ -16,11 +16,10 @@
   <%= simple_form_for :query, url: spaceships_path, method: "GET" do |f| %>
     <div class="search-form-control form-group boxes">
       <%= f.input :destination, collection: Booking::DESTINATION %>
-      <input type="date" id="start" name="trip-start"
-       value="2021-08-25">
+      <%= f.input :departure, as: :date %>
       <%= f.input :number_of_travellers, collection: Booking::CAPACITY %>
       <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
+        <i class="fas fa-search"></i> Search
       </button>
     </div>
   <% end %>
