@@ -6,7 +6,7 @@
     <div class="img"><%= cl_image_tag @booking.spaceship.image_url.key %></div>
     <div class="card-trip-infos">
       <div>
-        <p>Destination:<%= @booking.destination %></P>
+        <p>Destination: <%= @booking.destination %></P>
         <p>Location: <%= @booking.location %></p>
         <p>Spacetravellers: <%= @booking.passenger_quantity %></p>
         <p>Arrive: <%= @booking.arrive %></p>
@@ -15,6 +15,7 @@
       <div>
         <%= link_to "Delete booking",
                     booking_path(@booking),
+                    class: "btn btn-flat",
                     method: :delete,
                     data: { confirm: "Are you sure?" } %>
       </div>
@@ -22,5 +23,5 @@
     </div>
   </div>
   <br>
-  <div class="container"><%= link_to 'View bookings', bookings_path %></div>
+  <div class="container"><%= link_to 'View bookings', bookings_path, class: "btn btn-flat" %></div>
 </div>
