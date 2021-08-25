@@ -5,6 +5,14 @@ class SpaceshipsController < ApplicationController
     @spaceships = Spaceship.all
   end
 
+ def user_spaceship
+    @spaceships = Spaceship.all
+    @user = User.first
+    @spaceships_filtered = @spaceships.select do |spaceship|
+      spaceship.user == @user
+    end
+  end
+
   def show; end
 
   def new
