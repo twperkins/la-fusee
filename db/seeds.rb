@@ -9,6 +9,14 @@ if Rails.env.development?
   User.destroy_all
 end
 
+user_1 = User.create!(
+  email: "demo@email.com",
+  password: "123123",
+  name: "Joanna"
+)
+file = URI.open('https://source.unsplash.com//800x600/?person')
+user_1.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
+
 5.times do
   file = URI.open('https://source.unsplash.com//800x600/?person')
   user = User.create!(
