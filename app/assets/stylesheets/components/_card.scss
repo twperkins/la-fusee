@@ -59,6 +59,10 @@
   width: 500px;
   height: 200px;
   margin: 16px;
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .card-product .card-text {
