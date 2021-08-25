@@ -1,10 +1,11 @@
 require "open-uri"
 
 if Rails.env.development?
+    puts "Destroying spaceships..."
+  Spaceship.destroy_all
   puts "Destroying users..."
   User.destroy_all
-  puts "Destroying spaceships..."
-  Spaceship.destroy_all
+
   puts "Destroying bookings..."
   Booking.destroy_all
 end
@@ -16,6 +17,8 @@ end
     password: Faker::Internet.password,
     name: Faker::Internet.user
   )
+  puts "#{user.password}"
+  puts "#{user.email}"
   user.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
   puts "adding new user"
   3.times do

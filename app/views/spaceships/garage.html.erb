@@ -1,8 +1,15 @@
 <%= render "devise/shared/navbar" %>
-<ul>
+<%if @spaceships.count == 0 %>
+  <h1> You do not own a spaceship 😞</h1>
+<%else %>
   <% @spaceships.each do |spaceship| %>
     <li><%= link_to spaceship.name, spaceship_path(spaceship) %></li>
+    <div class="card-product">
+      <%= cl_image_tag spaceship.image_url.key, height: 200, width: 300, crop: :fill %>
+      <h2><%= spaceship.name %></h2>
+      <p><%= spaceship.description  %></p>
+    </div>
   <% end %>
-</ul>
+<% end %>
 <br>
-<%= link_to "Add a new spaceship", new_spaceship_path %>
+<%= link_to "Buy a spaceship", new_spaceship_path %>
