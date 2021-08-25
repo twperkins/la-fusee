@@ -1,34 +1,35 @@
 <%= render "devise/shared/navbar" %>
-<ul>
+
+<h6><center> Search the right spaceship for you 🚀.</center> </h6>
+
 <br>
-<h6><center> Please search below the spaceship with the right capacity for you 😊.</center> </h6>
-<p><center> Our amazing spaceships 🚀 can accomodate a maximum number of 6 spacetravelers! 👽 </center></p>
 
+<div class="container">
+  <div>
+    <%= form_tag spaceships_path, method: :get do |form| %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Please enter the capacity you want for your spaceship.."
+      %>
+      <br>
+      <%= submit_tag "Search", class: "btn btn-flat" %>
+    <% end %>
+  </div>
 
-<%= form_tag spaceships_path, method: :get do |form| %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Please enter the capacity you want for your spaceship.."
-  %>
+  <div class="card-list">
+    <% @spaceships.each do |spaceship| %>
+      <div class="card-product">
+        <%= cl_image_tag spaceship.image_url.key, height: 200, width: 200, crop: :fill %>
+        <div class="card-text">
+          <h2><%= spaceship.name %></h2><br>
+          <p><%= spaceship.description  %></p><br>
+          <p>Capacity: <%=spaceship.capacity %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <br>
-  <%= submit_tag "Search", class: "btn btn-danger" %>
-<% end %>
-
-    <br>
-    <h6>You can do a search above based on the capacity or feel free to check any of our spaceships! 🤩 </h6>
-
-  <% @spaceships.each do |spaceship| %>
-    <li><%= link_to spaceship.name, spaceship_path(spaceship) %></li>
-    <div class="card-product">
-      <%= cl_image_tag spaceship.image_url.key, height: 200, width: 300, crop: :fill %>
-      <h2><%= spaceship.name %></h2>
-      <p><%= spaceship.description  %></p>
-    </div>
-  <% end %>
-
-</ul>
-<br>
-  <%= link_to "Add a new spaceship", new_spaceship_path %>
-<br>
-<br>
+  <%= link_to "Add a new spaceship", new_spaceship_path, class: "btn btn-flat" %>
+</div>
