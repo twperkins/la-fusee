@@ -8,9 +8,9 @@
   <div>
     <%= simple_form_for :query, url: spaceships_path, method: :get do |f| %>
       <div class="search-form-control form-group boxes">
-        <%= f.input :destination, collection: Booking::DESTINATION, default: :destination %>
+        <%= f.input :destination, collection: Booking::DESTINATION %>
         <%= f.input :departure, as: :date%>
-        <%= f.input :number_of_travellers, collection: Booking::CAPACITY, default: :number_of_travellers %>
+        <%= f.input :number_of_travellers, collection: Booking::CAPACITY %>
         <button name="button" type="submit" class="btn btn-flat">
           <i class="fas fa-search"></i> Search
         </button>
