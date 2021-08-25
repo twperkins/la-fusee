@@ -5,12 +5,8 @@ class SpaceshipsController < ApplicationController
     @spaceships = Spaceship.all
   end
 
- def user_spaceship
-    @spaceships = Spaceship.all
-    @user = User.first
-    @spaceships_filtered = @spaceships.select do |spaceship|
-      spaceship.user == @user
-    end
+ def garage
+    @spaceships = Spaceship.where(user: current_user)
   end
 
   def show; end

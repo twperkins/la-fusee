@@ -1,6 +1,6 @@
 <%= render "devise/shared/navbar" %>
 <ul>
-  <% @spaceships_filtered.each do |spaceship| %>
+  <% @spaceships.each do |spaceship| %>
     <li><%= link_to spaceship.name, spaceship_path(spaceship) %></li>
   <% end %>
 </ul>
