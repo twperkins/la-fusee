@@ -1,14 +1,26 @@
 <%= render "devise/shared/navbar" %>
 
-<h2>destination:<%= @booking.destination %></h2>
-<p>price: £<%= @booking.price %></p>
-<p>location: <%= @booking.location %></p>
-<p>spacetravellers: <%= @booking.passenger_quantity %></p>
-<p>arrive: <li><%= @booking.arrive %></p>
-<p>depart: <li><%= @booking.depart %></p>
-<%= link_to "Delete booking",
-            booking_path(@booking),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-<br>
-<%= link_to 'View bookings', bookings_path %>
+
+<div class="container">
+  <div class="card-trip">
+    <div class="img"><%= cl_image_tag @booking.spaceship.image_url.key %></div>
+    <div class="card-trip-infos">
+      <div>
+        <p>Destination:<%= @booking.destination %></P>
+        <p>Location: <%= @booking.location %></p>
+        <p>Spacetravellers: <%= @booking.passenger_quantity %></p>
+        <p>Arrive: <%= @booking.arrive %></p>
+        <p>Depart: <%= @booking.depart %></p>
+      </div>
+      <div>
+        <%= link_to "Delete booking",
+                    booking_path(@booking),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+    </div>
+  </div>
+  <br>
+  <div class="container"><%= link_to 'View bookings', bookings_path %></div>
+</div>

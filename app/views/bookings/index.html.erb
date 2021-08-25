@@ -1,15 +1,27 @@
-<h1>Hello</h1>
-<%# <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" /> %>
-<h2><%= current_user.name %></h2>
-<h2>Upcoming bookings</h2>
-<% current_user.bookings.each do |booking| %>
-  <li><%= booking.passenger_quantity %>
-  <li><%= booking.location %>
-  <li><%= booking.price %>
-  <li><%= booking.arrive%>
-  <li><%= booking.depart%>
-  <%= link_to "Manage booking", booking_path(booking), class: "btn btn-flat" %>
-<% end %>
+<%= render "devise/shared/navbar" %>
+
+<div class="container">
+
+<h1>Welcome to your bookings <%= current_user.name %>! 🚀</h1>
+<h2>Upcoming bookings:</h2>
+
+  <% current_user.bookings.each do |booking| %>
+    <%= link_to booking_path(booking) do %>
+      <div class="card-product">
+        <%= cl_image_tag booking.spaceship.image_url.key, height: 200, width: 200, crop: :fill %>
+        <div class="card-text">
+          <p>Spacetravellers: <%= booking.passenger_quantity %></p>
+          <p>Location: <%= booking.location %></p>
+          <p>Arrive: <%= booking.arrive%></p>
+          <p>Depart: <%= booking.depart%></p>
+          <p>TOTAL: £<%= booking.price %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <br>
+
 <%= link_to "Search spaceships", spaceships_path, class: "btn btn-flat" %>
 <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn btn-flat" %>
+
+</div>
