@@ -1,14 +1,24 @@
-<div>
-<%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
-<%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary' %>
-</div>
-<br>
-<br>
-<%= simple_form_for :query, url: spaceships_path, method: "GET" do |f| %>
-  <div class="d-flex">
-    <%= f.input :destination, collection: Booking::DESTINATION %>
-    <%= f.input :departure, as: :text %>
-    <%= f.input :number_of_travellers, as: :text %>
-    <%= f.button :submit  %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1vKTnwLMdqs/1920x1281);">
+  <div class="container">
+    <h1>La Fusee</h1>
+    <p>space really is just <strong>one small step</strong>...</p>
+    <%= link_to 'Login', new_user_session_path, class: 'btn btn-flat' %>
+    <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-flat' %>
   </div>
-<% end %>
+</div>
+
+<div class="header">
+  <h2>Explore the stars</h2>
+  <h4>Find a rocket</h4>
+</div>
+
+<div class="search-bar">
+  <%= simple_form_for :query, url: spaceships_path, method: "GET" do |f| %>
+    <div class="d-flex">
+      <%= f.input :destination, collection: Booking::DESTINATION %>
+      <%= f.input :departure, as: :text %>
+      <%= f.input :number_of_travellers, as: :text %>
+      <%= f.button :submit  %>
+    </div>
+  <% end %>
+</div>

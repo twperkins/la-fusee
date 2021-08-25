@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <img src= "https://image.flaticon.com/icons/png/512/2578/2578890.png" />
-</a>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "https://image.flaticon.com/icons/png/512/2578/2578890.png" %>
+  <% end %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,17 +12,17 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
       <%# test id added to navlink so I can customize the button white %>
-        <a class="nav-link" id="test" href="#">Home</a>
+        <%= link_to "Search", spaceships_path, class: "nav-link", id: "test" %>
       </li>
       <li class="nav-item">
       <%# test1 id added to navlink so I can customize the button white %>
-        <a class="nav-link" id="test1"href="#">Messages</a>
+        <%= link_to "Bookings", bookings_path, class: "nav-link", id: "test" %>
       </li>
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://avatars.githubusercontent.com/u/85560933?v=4" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
     </ul>
