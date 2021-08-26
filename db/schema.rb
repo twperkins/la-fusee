@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_112845) do
+ActiveRecord::Schema.define(version: 2021_08_26_135021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2021_08_24_112845) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["spaceship_id"], name: "index_bookings_on_spaceship_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "name"
+    t.integer "flight_time"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "spaceships", force: :cascade do |t|

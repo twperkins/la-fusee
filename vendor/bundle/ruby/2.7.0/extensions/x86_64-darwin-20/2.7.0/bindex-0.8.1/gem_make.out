@@ -1,0 +1,15 @@
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/khuthadzo/.rbenv/versions/2.7.3/bin/ruby -I /Users/khuthadzo/.rbenv/versions/2.7.3/lib/ruby/2.7.0 -r ./siteconf20210826-8707-zadmer.rb extconf.rb
+creating Makefile
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20210826-8707-1rl7sja/skiptrace/internal

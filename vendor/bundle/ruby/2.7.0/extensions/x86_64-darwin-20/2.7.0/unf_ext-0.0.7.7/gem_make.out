@@ -1,0 +1,16 @@
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+/Users/khuthadzo/.rbenv/versions/2.7.3/bin/ruby -I /Users/khuthadzo/.rbenv/versions/2.7.3/lib/ruby/2.7.0 -r ./siteconf20210826-8707-9808e4.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make "DESTDIR=" clean
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make "DESTDIR="
+compiling unf.cc
+linking shared-object unf_ext.bundle
+
+current directory: /Users/khuthadzo/code/twperkins/la-fusee/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20210826-8707-jcjfhp
