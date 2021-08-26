@@ -19,15 +19,17 @@
         <%= link_to "Bookings", bookings_path, class: "nav-link", id: "test" %>
       </li>
       <li class="nav-item dropdown">
-        <% if current_user.image_url.key == nil %>
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://avatars.githubusercontent.com/u/85560933?s=60&v=4" />
-        <% else %>
-          <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= cl_image_tag current_user.image_url.key, class: "avatar dropdown-toggle", id: "navbarDropdown", height: 40, width: 300 %></div>
+        <% if user_signed_in? %>
+          <% if current_user.image_url.key == nil %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://avatars.githubusercontent.com/u/85560933?s=60&v=4" />
+          <% else %>
+            <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= cl_image_tag current_user.image_url.key, class: "avatar dropdown-toggle", id: "navbarDropdown", height: 40, width: 300 %></div>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
         <% end %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
       </li>
     </ul>
   </div>
