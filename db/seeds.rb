@@ -5,6 +5,8 @@ if Rails.env.development?
   Booking.destroy_all
   puts "Destroying spaceships..."
   Spaceship.destroy_all
+  puts "Destroying planets..."
+  Destination.destroy_all
   puts "Destroying users..."
   User.destroy_all
 end

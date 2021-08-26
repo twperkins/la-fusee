@@ -1,7 +1,8 @@
 <%= render "devise/shared/navbar" %>
+<div><%= render 'devise/shared/search_form' %></div>
 
 <div class="container">
-  <h2>Visit *interpolate destination here* with <%= @spaceship.name %></h2>
+  <h2>Visit <%= @destination.name %> with <%= @spaceship.name %></h2>
     <div class="card-trip">
       <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
       <div class="card-trip-infos">
@@ -19,19 +20,15 @@
   <br>
 
 
-<div class="card-destination">
-      <div class="img"><%= cl_image_tag @destination.image_url.key %></div>
-      <div class="card-destination-infos">
-        <h2><%= @destination.name %></h2>
-        <p><%= @destination.description %></p>
-      </div>
+  <div class="card-destination">
+    <div class="img"><%= cl_image_tag @destination.image_url.key %></div>
+    <div class="card-destination-infos">
+      <h2><%= @destination.name %></h2>
+      <p>Prepare to blast off for a <%= @destination.flight_time %> day journey</p>
+    </div>
   </div>
   <br>
   <br>
-
-
-
-
 
 
   <% if @spaceship.user == current_user %>

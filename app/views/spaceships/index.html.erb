@@ -9,7 +9,7 @@
 
   <div class="card-list">
     <% @spaceships.each do |spaceship| %>
-      <%= link_to spaceship_path(spaceship) do %>
+      <%= link_to spaceship_path(spaceship, query: {destination: params.dig(:query, :destination)}) do %>
         <div class="card-product">
           <% if spaceship.user == current_user %>
             <%= cl_image_tag current_user.image_url.key, class: "avatar icon", id: "navbarDropdown", height: 40, width: 300 %>
