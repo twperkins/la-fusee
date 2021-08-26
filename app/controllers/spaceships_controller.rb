@@ -14,7 +14,10 @@ class SpaceshipsController < ApplicationController
   def show; end
 
   def garage
-    @spaceships = Spaceship.where(user: current_user)
+    # if user_check?
+      @spaceships = Spaceship.where(user: current_user)
+    # else
+    #   redirect_to
   end
 
   def new
@@ -53,7 +56,7 @@ class SpaceshipsController < ApplicationController
     @spaceship = Spaceship.find(params[:id])
   end
 
-  def user_check
+  def user_check?
     # returns true for owner, false for user
     current_user.spaceships.present?
   end
