@@ -5,5 +5,5 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :destination
   validates :price, :arrive, :depart, :passenger_quantity, presence: true
-  validates :destination, presence: true, inclusion: { in: DESTINATION }
+  # validates :destination, presence: true, inclusion: { in: DESTINATION }
 end

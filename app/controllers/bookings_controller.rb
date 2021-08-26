@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def index
+    @spaceships = Spaceship.where(user: current_user)
     @bookings = Booking.all
   end
 
@@ -15,6 +16,7 @@ class BookingsController < ApplicationController
   def create
     @spaceship = Spaceship.find(params[:spaceship_id])
     @booking = Booking.new(booking_params)
+    @booking.approved = false
     @booking.spaceship = @spaceship
     @booking.user_id = current_user.id
     if @booking.save!
@@ -33,6 +35,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:price, :destination, :arrive, :depart, :passenger_quantity, :spaceship_id, :user_id)
+    params.require(:booking).permit(:price, :arrive, :depart, :passenger_quantity, :spaceship_id, :user_id, :destination_id)
   end
 end
