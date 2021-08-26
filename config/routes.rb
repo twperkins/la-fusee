@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: %i[index show edit update destroy]
   get '/garage', to: 'spaceships#garage'
+  resources :destinations, only: %i[index show]
 end
