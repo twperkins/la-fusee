@@ -2,26 +2,28 @@
 
 <div class="container">
 
-<h1>Welcome to your bookings <%= current_user.name %>! 🚀</h1>
-<h2>Upcoming bookings:</h2>
+  <h1>Welcome to your bookings <%= current_user.name %>! 🚀</h1>
+  <h2>Upcoming bookings:</h2>
 
-  <% current_user.bookings.each do |booking| %>
-    <%= link_to booking_path(booking) do %>
-      <div class="card-product">
-        <%= cl_image_tag booking.spaceship.image_url.key, height: 200, width: 200, crop: :fill %>
-        <div class="card-text">
-          <p>Spacetravellers: <%= booking.passenger_quantity %></p>
-          <p>Destination: <%= booking.destination %></p>
-          <p>Arrive: <%= booking.arrive%></p>
-          <p>Depart: <%= booking.depart%></p>
-          <p>TOTAL: £<%= booking.price %></p>
+    <% current_user.bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+        <div class="card-product">
+          <%= cl_image_tag booking.spaceship.image_url.key, height: 200, width: 200, crop: :fill %>
+          <div class="card-text">
+            <p>Spacetravellers: <%= booking.passenger_quantity %></p>
+            <p>Destination: <%= booking.destination %></p>
+            <p>Arrive: <%= booking.arrive%></p>
+            <p>Depart: <%= booking.depart%></p>
+            <p>TOTAL: £<%= booking.price %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-<br>
+  <br>
 
-<%= link_to "Search spaceships", spaceships_path, class: "btn btn-flat" %>
-<%= link_to "View garage", garage_path(current_user), class: "btn btn-flat" %>
+  <h2>Pending approval:</h2>
+
+  <%= link_to "Search spaceships", spaceships_path, class: "btn btn-flat" %>
+  <%= link_to "View garage", garage_path(current_user), class: "btn btn-flat" %>
 
 </div>
