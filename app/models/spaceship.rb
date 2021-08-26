@@ -1,7 +1,8 @@
 class Spaceship < ApplicationRecord
   belongs_to :user
-  has_one_attached :image_url
   has_many :bookings, dependent: :destroy
+  has_many :destinations, through: :bookings
+  has_one_attached :image_url
   validates :name, :description, :cost, presence: true
   validates :capacity, presence: true
 end
