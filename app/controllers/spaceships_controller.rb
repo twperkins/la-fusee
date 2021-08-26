@@ -50,4 +50,9 @@ class SpaceshipsController < ApplicationController
   def set_spaceship
     @spaceship = Spaceship.find(params[:id])
   end
+
+  def user_check
+    # returns true for owner, false for user
+    current_user.spaceships.present?
+  end
 end
