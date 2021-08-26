@@ -17,6 +17,25 @@
     </div>
   <br>
   <br>
+
+
+<div class="card-destination">
+      <div class="img"><%= cl_image_tag @destination.image_url.key %></div>
+      <div class="card-destination-infos">
+        <div>
+          <h2><%= @destination.name %></h2>
+          <p><%= @destination.description %></p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+
+
+
+
+
+
   <% if @spaceship.user == current_user %>
     <%= link_to "Edit spaceship", edit_spaceship_path, class: "btn btn-flat" %>
     <%= link_to "Delete #{@spaceship.name}",
