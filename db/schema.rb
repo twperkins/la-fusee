@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_135800) do
+ActiveRecord::Schema.define(version: 2021_08_26_150129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2021_08_26_135800) do
 
   create_table "bookings", force: :cascade do |t|
     t.float "price"
-    t.string "destination"
     t.string "arrive"
     t.string "depart"
     t.integer "passenger_quantity"
@@ -47,6 +46,8 @@ ActiveRecord::Schema.define(version: 2021_08_26_135800) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "approved"
+    t.bigint "destination_id", null: false
+    t.index ["destination_id"], name: "index_bookings_on_destination_id"
     t.index ["spaceship_id"], name: "index_bookings_on_spaceship_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_135800) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "destinations"
   add_foreign_key "bookings", "spaceships"
   add_foreign_key "bookings", "users"
   add_foreign_key "spaceships", "users"
