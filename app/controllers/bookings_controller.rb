@@ -35,4 +35,9 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:price, :destination, :location, :arrive, :depart, :passenger_quantity, :spaceship_id, :user_id)
   end
+
+  def user_check
+    # returns true for owner, false for user
+    current_user.spaceships.present?
+  end
 end
