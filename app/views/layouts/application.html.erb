@@ -13,7 +13,9 @@
 
   <body>
     <%= render 'devise/shared/flashes' %>
+    <div class="min-height">
     <%= yield %>
+    </div>
     <br>
     <%= render "devise/shared/footer" %>
   </body>
