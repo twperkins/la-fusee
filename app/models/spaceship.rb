@@ -5,5 +5,4 @@ class Spaceship < ApplicationRecord
   has_one_attached :image_url
   validates :name, :description, :cost, presence: true
   validates :capacity, presence: true
-  validates :image_url, presence: true
 end
