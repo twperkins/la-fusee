@@ -1,16 +1,18 @@
 <%= render "devise/shared/navbar" %>
 
 <div class="container">
-  <div class="card-trip">
-    <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= @spaceship.name %></h2>
-        <p><%= @spaceship.description %></p>
-      </div>
-      <div>
-        <h2 class="card-trip-pricing">£<%= @spaceship.capacity * 100 - 0.01 %></h2>
-        <p>Up to <%= @spaceship.capacity %> passengers</p>
+  <h2>Visit *interpolate destination here* with <%= @spaceship.name %></h2>
+    <div class="card-trip">
+      <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= @spaceship.name %></h2>
+          <p><%= @spaceship.description %></p>
+        </div>
+        <div>
+          <h2 class="card-trip-pricing">£<%= @spaceship.capacity * 100 - 0.01 %></h2>
+          <p>Up to <%= @spaceship.capacity %> passengers</p>
+        </div>
       </div>
     </div>
   </div>
