@@ -14,10 +14,11 @@ class SpaceshipsController < ApplicationController
   def show; end
 
   def garage
-    # if user_check?
+    if user_check?
       @spaceships = Spaceship.where(user: current_user)
-    # else
-    #   redirect_to
+    else
+      redirect_to new_spaceship_path
+    end
   end
 
   def new
@@ -34,7 +35,9 @@ class SpaceshipsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    return unless @spaceship.user != current_user
+  end
 
   def update
     @spaceship.update(spaceship_params)
@@ -42,8 +45,12 @@ class SpaceshipsController < ApplicationController
   end
 
   def destroy
-    @spaceship.destroy
-    redirect_to spaceships_path
+    if @spaceship.user == current_user
+      @spaceship.destroy
+      redirect_to spaceships_path
+    else
+      redirect_to spaceship_path(@spaceship)
+    end
   end
 
   private
