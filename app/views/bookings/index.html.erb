@@ -11,7 +11,7 @@
         <%= cl_image_tag booking.spaceship.image_url.key, height: 200, width: 200, crop: :fill %>
         <div class="card-text">
           <p>Spacetravellers: <%= booking.passenger_quantity %></p>
-          <p>Location: <%= booking.location %></p>
+          <p>Destination: <%= booking.destination %></p>
           <p>Arrive: <%= booking.arrive%></p>
           <p>Depart: <%= booking.depart%></p>
           <p>TOTAL: £<%= booking.price %></p>

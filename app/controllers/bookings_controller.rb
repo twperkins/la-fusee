@@ -33,6 +33,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:price, :destination, :location, :arrive, :depart, :passenger_quantity, :spaceship_id, :user_id)
+    params.require(:booking).permit(:price, :destination, :arrive, :depart, :passenger_quantity, :spaceship_id, :user_id)
   end
 end
