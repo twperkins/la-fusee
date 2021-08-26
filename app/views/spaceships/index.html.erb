@@ -1,22 +1,11 @@
 <%= render "devise/shared/navbar" %>
 
-<h6> Find the right spaceship for you 🚀. </h6>
-
 <br>
 
 <div class="container">
-  <div>
-    <%= simple_form_for :query, url: spaceships_path, method: :get do |f| %>
-      <div class="search-form-control form-group boxes">
-        <%= f.input :destination, collection: Booking::DESTINATION %>
-        <%= f.input :departure, as: :date%>
-        <%= f.input :number_of_travellers, collection: Booking::CAPACITY %>
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    <% end %>
-  </div>
+  <div id="center"><h3> Find the trip for you! 🛸</h3></div>
+
+  <div><%= render 'devise/shared/search_form' %></div>
 
   <div class="card-list">
     <% @spaceships.each do |spaceship| %>
