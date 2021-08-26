@@ -11,7 +11,9 @@ class SpaceshipsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @destination = Destination.find(params[:query][:destination])
+  end
 
   def garage
     if user_check?
