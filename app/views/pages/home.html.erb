@@ -4,8 +4,9 @@
     <p>space really is just <strong>one small step</strong>...</p>
     <% if user_signed_in? %>
       <h3 class="white-text">Welcome <%= current_user[:name] %></h3>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-flat' %>
-       <%= link_to "Add a new spaceship", new_spaceship_path, class: "btn btn-flat" %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-flat' %>
+        <%= link_to "Add a new spaceship", new_spaceship_path, class: "btn btn-flat" %>
+        <%= link_to "My bookings",  bookings_path, class: "btn btn-flat" %>
     <% else %>
       <%= link_to 'Login', new_user_session_path, class: 'btn btn-flat' %>
       <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-flat' %>
