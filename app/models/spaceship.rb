@@ -4,4 +4,5 @@ class Spaceship < ApplicationRecord
   has_many :bookings, dependent: :destroy
   validates :name, :description, presence: true
   validates :capacity, presence: true
+  validates :image_url, presence: true
 end
