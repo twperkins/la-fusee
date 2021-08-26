@@ -22,6 +22,9 @@
     <% @spaceships.each do |spaceship| %>
       <%= link_to spaceship_path(spaceship) do %>
         <div class="card-product">
+          <% if spaceship.user == current_user %>
+            <%= cl_image_tag current_user.image_url.key, class: "avatar icon", id: "navbarDropdown", height: 40, width: 300 %>
+          <% end %>
           <%= cl_image_tag spaceship.image_url.key, height: 200, width: 200, crop: :fill %>
           <div class="card-text">
             <h2><%= spaceship.name %></h2><br>
@@ -32,7 +35,4 @@
       <% end %>
     <% end %>
   </div>
-
-  <br>
-  <%= link_to "Add a new spaceship", new_spaceship_path, class: "btn btn-flat" %>
 </div>

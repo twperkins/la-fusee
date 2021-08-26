@@ -8,8 +8,7 @@
 
 .card-trip > img {
   height: 200px;
-  width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .card-trip h2 {
@@ -59,10 +58,18 @@
   width: 500px;
   height: 200px;
   margin: 16px;
+  position: relative;
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.05);
   }
+}
+
+.icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  border: solid 1px #ffffff;
 }
 
 .card-product .card-text {

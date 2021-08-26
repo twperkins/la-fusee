@@ -15,16 +15,16 @@
     </div>
   </div>
 
-  <%= link_to "Make a booking", new_spaceship_booking_path(@spaceship), class: "btn btn-submit" %>
   <br>
   <br>
-  <%= link_to 'View spaceships', spaceships_path, class: "btn btn-flat" %>
-  <% if @spaceship.user_id == current_user %>
+  <% if @spaceship.user == current_user %>
     <%= link_to "Delete #{@spaceship.name}",
                 spaceship_path(@spaceship),
                 method: :delete,
                 class: "btn btn-flat",
                 data: { confirm: "Are you sure?" } %>
     <%= link_to "Edit spaceship", edit_spaceship_path, class: "btn btn-flat" %>
+  <% else %>
+    <%= link_to "Make a booking", new_spaceship_booking_path(@spaceship), class: "btn btn-submit" %>
   <% end %>
 </div>
