@@ -6,7 +6,7 @@
 <h1>Welcome to your bookings <%= current_user.name %>! 🚀</h1>
 
 <% if current_user.spaceships.present? %>
-  <h2>Pending bookings:</h2>
+  <h2>Your fleet bookings:</h2>
   <% current_user.spaceships.each do |spaceship| %>
     <% if spaceship.bookings.present? %>
        <% spaceship.bookings.each do |booking| %>
@@ -16,22 +16,20 @@
             <div class="card-text">
               <p>Spacetravellers: <%= booking.passenger_quantity %></p>
               <p>Destination: <%= booking.destination.name %></p>
-              <p>Arrive: <%= booking.arrive%></p>
               <p>Depart: <%= booking.depart%></p>
+              <p>Days spacetravelling: <%= booking.arrive%></p>
               <p>TOTAL: £<%= booking.price %></p>
             </div>
           </div>
         <% end %>
       <% end %>
-    <% else %>
-      <h4>No bookings</h4>
     <% end %>
   <% end %>
   <br>
   <br>
 <% end %>
 
-<h2>Upcoming bookings:</h2>
+<h2>Your upcoming trips:</h2>
 
 
     <% current_user.bookings.each do |booking| %>
@@ -41,8 +39,8 @@
           <div class="card-text">
             <p>Spacetravellers: <%= booking.passenger_quantity %></p>
             <p>Destination: <%= booking.destination.name %></p>
-            <p>Arrive: <%= booking.arrive%></p>
             <p>Depart: <%= booking.depart%></p>
+            <p>Days spacetravelling: <%= booking.arrive%></p>
             <p>TOTAL: £<%= booking.price %></p>
           </div>
         </div>
