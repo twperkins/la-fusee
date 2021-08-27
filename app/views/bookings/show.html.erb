@@ -3,7 +3,7 @@
 
 <div class="row justify-content-center">
   <div class="centred">
-    <h2>Your trip to <%= @booking.destination.name %></h2>
+    <h2><%= @booking.user.name %>'s trip to <%= @booking.destination.name %></h2>
     <div class="card-trip">
       <div class="img"><%= cl_image_tag @booking.spaceship.image_url.key %></div>
       <div class="card-trip-infos">
