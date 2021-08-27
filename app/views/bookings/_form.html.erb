@@ -5,11 +5,11 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :price, input_html:{value:"#{@spaceship.cost}"}, readonly: true %>
-    <%= f.input :destination, input_html:{value:"#{@destination.name}"}, readonly: true %>
+    <%= f.input :price, label: "Price (£)", input_html:{ value:"#{@spaceship.cost}" }, readonly: true %>
+    <%= f.input :destination, input_html:{ value:"#{@destination.name}" }, readonly: true %>
     <%= f.input :depart, as: :date, input_html: { min: Date.today }, html5: true %>
-    <%= f.input :arrive, as: :date, input_html: { min: Date.today, value: "#{@destination}" }, html5: true %>
-    <%= f.input :passenger_quantity, max: @spaceship.capacity %>
+    <%= f.input :arrive, label: "Days flight", input_html: { value: "#{@destination.flight_time}" }, readonly: true %>
+    <%= f.input :passenger_quantity, collection: (2..@spaceship.capacity) %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-submit"  %>
