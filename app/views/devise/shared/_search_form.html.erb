@@ -2,8 +2,8 @@
   <%= simple_form_for :query, url: spaceships_path, method: :get do |f| %>
     <div class="search-form-control form-group boxes">
       <%= f.input :destination, collection: Destination.all, selected: params.dig(:query, :destination) %>
-      <%= f.input :depart, as: :date, html5: true, selected: params.dig(:query, :depart) %>
-      <%= f.input :number_of_travellers, collection: Booking::CAPACITY, selected: params.dig(:query, :number_of_travellers) %>
+      <%= f.input :depart, as: :date, input_html: { min: Date.today }, html5: true, selected: params.dig(:query, :depart) %>
+      <%= f.input :number_of_travellers, collection: (2..10), selected: params.dig(:query, :number_of_travellers) %>
       <button name="button" type="submit" class="btn btn-flat">
         <i class="fas fa-search"></i> Search
       </button>
