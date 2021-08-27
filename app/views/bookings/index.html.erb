@@ -15,7 +15,7 @@
             <%= cl_image_tag booking.user.image_url.key, height: 200, width: 200, crop: :fill %>
             <div class="card-text">
               <p>Spacetravellers: <%= booking.passenger_quantity %></p>
-              <p>Destination: <%= booking.destination %></p>
+              <p>Destination: <%= booking.destination.name %></p>
               <p>Arrive: <%= booking.arrive%></p>
               <p>Depart: <%= booking.depart%></p>
               <p>TOTAL: £<%= booking.price %></p>
@@ -31,8 +31,6 @@
   <br>
 <% end %>
 
-
-
 <h2>Upcoming bookings:</h2>
 
 
@@ -42,7 +40,7 @@
           <%= cl_image_tag booking.spaceship.image_url.key, height: 200, width: 200, crop: :fill %>
           <div class="card-text">
             <p>Spacetravellers: <%= booking.passenger_quantity %></p>
-            <p>Destination: <%= booking.destination %></p>
+            <p>Destination: <%= booking.destination.name %></p>
             <p>Arrive: <%= booking.arrive%></p>
             <p>Depart: <%= booking.depart%></p>
             <p>TOTAL: £<%= booking.price %></p>
@@ -51,8 +49,6 @@
       <% end %>
     <% end %>
   <br>
-
-  <h2>Pending approval:</h2>
 
   <%= link_to "Search spaceships", spaceships_path, class: "btn btn-flat" %>
   <%= link_to "View garage", garage_path(current_user), class: "btn btn-flat" %>
