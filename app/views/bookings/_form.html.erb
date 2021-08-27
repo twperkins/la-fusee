@@ -1,3 +1,4 @@
+<% @spaceship = Spaceship.find(params[:spaceship_id])%>
 <% @destination = Destination.find(params[:query][:destination])%>
 <%= simple_form_for [@spaceship, @booking] do |f| %>
   <%= f.error_notification %>
@@ -10,7 +11,6 @@
     <%= f.input :arrive, as: :date, input_html: { min: Date.today, value: "#{@destination.flight_time}" }, html5: true %>
     <%= f.input :passenger_quantity, input_html: { min: 2, max: @spaceship.capacity } %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-submit"  %>
   </div>

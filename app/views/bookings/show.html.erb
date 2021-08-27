@@ -6,7 +6,7 @@
     <div class="img"><%= cl_image_tag @booking.spaceship.image_url.key %></div>
     <div class="card-trip-infos">
       <div>
-        <p>Destination: <%= @booking.destination %></P>
+        <p>Destination: <%= @booking.destination.name %></P>
         <p>Spacetravellers: <%= @booking.passenger_quantity %></p>
         <p>Arrive: <%= @booking.arrive %></p>
         <p>Depart: <%= @booking.depart %></p>
