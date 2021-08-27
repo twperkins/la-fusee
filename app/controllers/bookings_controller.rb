@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   def index
     @spaceships = Spaceship.where(user: current_user)
     @bookings = Booking.all
@@ -10,12 +11,22 @@ class BookingsController < ApplicationController
 
   def new
     @spaceship = Spaceship.find(params[:spaceship_id])
+    @destination = Destination.find(params[:query][:destination])
     @booking = Booking.new
+    # @booking = Booking.new(booking_params)
+    # @booking.destination = @destination
+    # @booking.approved = false
+    # @booking.spaceship = @spaceship
+    # @booking.user_id = current_user.id
+    # @booking.create
+    # @booking.save!
   end
 
   def create
     @spaceship = Spaceship.find(params[:spaceship_id])
+    @destination = Destination.find_by(name: params[:booking][:destination])
     @booking = Booking.new(booking_params)
+    @booking.destination = @destination
     @booking.approved = false
     @booking.spaceship = @spaceship
     @booking.user_id = current_user.id
