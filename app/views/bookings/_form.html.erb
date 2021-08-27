@@ -7,9 +7,9 @@
   <div class="form-inputs">
     <%= f.input :price, label: "Price (£)", input_html:{ value:"#{@spaceship.cost}" }, readonly: true %>
     <%= f.input :destination, input_html:{ value:"#{@destination.name}" }, readonly: true %>
-    <%= f.input :depart, as: :date, input_html: { min: Date.today }, html5: true %>
+    <%= f.input :depart, as: :date, required: true, input_html: { min: Date.today }, html5: true %>
     <%= f.input :arrive, label: "Days flight", input_html: { value: "#{@destination.flight_time}" }, readonly: true %>
-    <%= f.input :passenger_quantity, collection: (2..@spaceship.capacity) %>
+    <%= f.input :passenger_quantity, label: "Passengers allowed", input_html: { value: "#{@spaceship.capacity}" }, readonly: true %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-submit"  %>
