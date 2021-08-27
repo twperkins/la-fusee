@@ -12,7 +12,11 @@ class SpaceshipsController < ApplicationController
   end
 
   def show
-    @destination = Destination.find(params[:query][:destination])
+    if params[:query] == ""
+      @destination = Destination.find(params[:query][:destination])
+    else
+      @destination = Destination.last
+    end
   end
 
   def garage
