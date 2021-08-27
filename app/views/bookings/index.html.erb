@@ -31,37 +31,6 @@
   <br>
 <% end %>
 
-
-<%# make a space for pending approval bookings with approve booking button %>
-
-<% if current_user.spaceships.present? %>
-  <h2>Pending approval:</h2>
-  <% current_user.spaceships.each do |spaceship| %>
-    <% if spaceship.bookings.present? %>
-       <% spaceship.bookings.each do |booking| %>
-        <%= link_to booking_path(booking) do %>
-          <div class="card-product">
-            <%= cl_image_tag booking.user.image_url.key, height: 200, width: 200, crop: :fill %>
-            <div class="card-text">
-              <p>Spacetravellers: <%= booking.passenger_quantity %></p>
-              <p>Destination: <%= booking.destination.name %></p>
-              <p>Arrive: <%= booking.arrive%></p>
-              <p>Depart: <%= booking.depart%></p>
-              <p>TOTAL: £<%= booking.price %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    <% else %>
-      <h4>No bookings</h4>
-    <% end %>
-  <% end %>
-  <br>
-  <br>
-<% end %>
-
-
-
 <h2>Upcoming bookings:</h2>
 
 
