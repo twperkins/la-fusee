@@ -16,7 +16,7 @@ user1 = User.create!(
   password: "123123",
   name: "Joanna"
 )
-file = URI.open('https://source.unsplash.com//00x600/?person')
+file = URI.open('https://source.unsplash.com/800x600/?person')
 user1.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
 
 5.times do
