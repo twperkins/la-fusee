@@ -7,8 +7,14 @@
       <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
       <div class="card-trip-infos">
         <div>
-          <h2><%= @spaceship.name %></h2>
-          <p><%= @spaceship.description %></p>
+          <h2>Spaceship: <%= @spaceship.name %></h2>
+          <p>Description: <%= @spaceship.description %></p>
+        </div>
+        <div class="card-trip-infos">
+          <div>
+            <h2>Destination: <%= @destination.name %></h2>
+            <p>Flight duration: <%= @destination.flight_time %>days</p>
+          <div>
         </div>
         <div>
           <h2 class="card-trip-pricing">£<%= @spaceship.capacity * 100 - 0.01 %></h2>
@@ -20,15 +26,17 @@
   <br>
 
 
-  <div class="card-destination">
-    <div class="img"><%= cl_image_tag @destination.image_url.key %></div>
-    <div class="card-destination-infos">
-      <h2><%= @destination.name %></h2>
-      <p>Prepare to blast off for a <%= @destination.flight_time %> day journey</p>
-    </div>
-  </div>
-  <br>
-  <br>
+  <%# <div class="card-destination"> %>
+    <%# <div class="img"><%= cl_image_tag @destination.image_url.key %>
+    <%# </div> %>
+    <%# <div class="card-destination-infos"> %>
+      <%# <h2><%= @destination.name %>
+      <%# <p>Prepare to blast off for a <%= @destination.flight_time %>
+      <%# day journey</p> %>
+    <%# </div> %>
+  <%# </div> %>
+  <%# <br> %>
+  <%# <br> %>
 
 
   <% if @spaceship.user == current_user %>
