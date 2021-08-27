@@ -1,59 +1,63 @@
 <%= render "devise/shared/navbar" %>
 
-<div class="container">
-  <% if params.key?(:query) && params[:query][:destination].present? %>
-  <div><%= render 'devise/shared/search_form' %></div>
-    <h2>Visit <%= @destination.name %> with <%= @spaceship.name %></h2>
+<div class="row justify-content-center">
+  <div class="centred">
+    <% if params.key?(:query) && params[:query][:destination].present? %>
+    <div><%= render 'devise/shared/search_form' %></div>
+      <h2>Visit <%= @destination.name %> with <%= @spaceship.name %></h2>
+        <div class="card-trip">
+          <div class="img"><%= cl_image_tag @destination.image_url.key %></div>
+          <div class="card-trip-infos">
+            <div>
+              <h2>Spaceship: <%= @spaceship.name %></h2>
+              <p>Description: <%= @spaceship.description %></p>
+            </div>
+            <div>
+              <div>
+                <h2>Destination: <%= @destination.name %></h2>
+                <p>Flight duration: <%= @destination.flight_time %>days</p>
+              </div>
+            </div>
+            <div>
+              <h2 class="card-trip-pricing">Price: £<%= @spaceship.cost * @destination.flight_time %></h2>
+              <p>Up to <%= @spaceship.capacity %> passengers</p>
+            </div>
+          </div>
+        </div>
+      <br>
+      <br>
+
+      <% if @spaceship.user == current_user %>
+        <%= link_to "Edit spaceship", edit_spaceship_path, class: "btn btn-flat" %>
+        <%= link_to "Delete #{@spaceship.name}",
+                    spaceship_path(@spaceship),
+                    method: :delete,
+                    class: "btn btn-flat",
+                    data: { confirm: "Are you sure?" } %>
+      <% else %>
+        <%= link_to "Make a booking", new_spaceship_booking_path(@spaceship,query: {destination: params.dig(:query, :destination)}), class: "btn btn-submit" %>
+      <% end %>
+    <% else %>
       <div class="card-trip">
-        <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
-        <div class="card-trip-infos">
-          <div>
+          <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
+          <div class="card-trip-infos">
             <h2>Spaceship: <%= @spaceship.name %></h2>
             <p>Description: <%= @spaceship.description %></p>
           </div>
-          <div class="card-trip-infos">
-            <div>
-              <h2>Destination: <%= @destination.name %></h2>
-              <p>Flight duration: <%= @destination.flight_time %>days</p>
-            </div>
-          </div>
-          <div>
-            <h2 class="card-trip-pricing">Price: £<%= @spaceship.capacity * 100 - 0.01 %></h2>
-            <p>Up to <%= @spaceship.capacity %> passengers</p>
-          </div>
-        </div>
       </div>
-    <br>
-    <br>
+      <br>
+      <br>
 
-    <% if @spaceship.user == current_user %>
-      <%= link_to "Edit spaceship", edit_spaceship_path, class: "btn btn-flat" %>
-      <%= link_to "Delete #{@spaceship.name}",
-                  spaceship_path(@spaceship),
-                  method: :delete,
-                  class: "btn btn-flat",
-                  data: { confirm: "Are you sure?" } %>
-    <% else %>
-      <%= link_to "Make a booking", new_spaceship_booking_path(@spaceship,query: {destination: params.dig(:query, :destination)}), class: "btn btn-submit" %>
+      <% if @spaceship.user == current_user %>
+        <%= link_to "Edit spaceship", edit_spaceship_path, class: "btn btn-flat" %>
+        <%= link_to "Delete #{@spaceship.name}",
+                    spaceship_path(@spaceship),
+                    method: :delete,
+                    class: "btn btn-flat",
+                    data: { confirm: "Are you sure?" } %>
+      <% else %>
+        <%= link_to "Add your own spaceship", new_spaceship_path, class: "btn btn-submit" %>
+      <% end %>
     <% end %>
-  <% else %>
-    <div class="card-trip">
-        <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
-        <div class="card-trip-infos">
-          <h2>Spaceship: <%= @spaceship.name %></h2>
-          <p>Description: <%= @spaceship.description %></p>
-        </div>
-    </div>
-    <br>
-    <br>
-
-    <% if @spaceship.user == current_user %>
-      <%= link_to "Edit spaceship", edit_spaceship_path, class: "btn btn-flat" %>
-      <%= link_to "Delete #{@spaceship.name}",
-                  spaceship_path(@spaceship),
-                  method: :delete,
-                  class: "btn btn-flat",
-                  data: { confirm: "Are you sure?" } %>
-    <% end %>
-  <% end %>
+  </div>
 </div>

@@ -1,25 +1,28 @@
 <%= render "devise/shared/navbar" %>
 
 
-<div class="container">
-  <div class="card-trip">
-    <div class="img"><%= cl_image_tag @booking.spaceship.image_url.key %></div>
-    <div class="card-trip-infos">
-      <div>
-        <p>Destination: <%= @booking.destination.name %></P>
-        <p>Spacetravellers: <%= @booking.passenger_quantity %></p>
-        <p>Duration: <%= @booking.arrive %> days</p>
-        <p>Depart: <%= @booking.depart %></p>
+<div class="row justify-content-center">
+  <div class="centred">
+    <h2>Your trip to <%= @booking.destination.name %></h2>
+    <div class="card-trip">
+      <div class="img"><%= cl_image_tag @booking.spaceship.image_url.key %></div>
+      <div class="card-trip-infos">
+        <div>
+          <p>Destination: <%= @booking.destination.name %></P>
+          <p>Spacetravellers: <%= @booking.passenger_quantity %></p>
+          <p>Journey time: <%= @booking.arrive %> days</p>
+          <p>Depart: <%= @booking.depart %></p>
+        </div>
+        <div>
+          <%= link_to "Cancel booking",
+                      booking_path(@booking),
+                      class: "btn btn-flat",
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+        </div>
       </div>
-      <div>
-        <%= link_to "Cancel booking",
-                    booking_path(@booking),
-                    class: "btn btn-flat",
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
       </div>
     </div>
-    </div>
+    <br>
   </div>
-  <br>
 </div>

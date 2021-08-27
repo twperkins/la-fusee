@@ -14,11 +14,11 @@
           <div class="card-product">
             <%= cl_image_tag booking.user.image_url.key, height: 200, width: 200, crop: :fill %>
             <div class="card-text">
-              <p>Spacetravellers: <%= booking.passenger_quantity %></p>
+              <h3>Booking with <%= booking.user.name %></h3>
               <p>Destination: <%= booking.destination.name %></p>
               <p>Depart: <%= booking.depart%></p>
-              <p>Duration: <%= booking.arrive%> days</p>
-              <p>TOTAL: £<%= booking.price %></p>
+              <p>Travelling on <%= booking.spaceship.name%></p>
+              <p>Base cost: £<%= booking.price %></p>       
             </div>
           </div>
         <% end %>
