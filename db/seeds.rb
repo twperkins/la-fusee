@@ -16,11 +16,11 @@ user1 = User.create!(
   password: "123123",
   name: "Joanna"
 )
-file = URI.open('https://source.unsplash.com//800x600/?person')
+file = URI.open('https://source.unsplash.com//00x600/?person')
 user1.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
 
 5.times do
-  file = URI.open('https://source.unsplash.com//800x600/?person')
+  file = URI.open('https://source.unsplash.com/800x600/?person')
   user = User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
@@ -31,7 +31,7 @@ user1.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png'
   puts "adding new user"
 
   5.times do
-    file = URI.open('https://source.unsplash.com//800x600/?rocket')
+    file = URI.open('https://source.unsplash.com/800x600/?rocket')
     spaceship = Spaceship.create!(
       name: Faker::Space.moon,
       capacity: [2, 4, 6, 8].sample,
@@ -45,7 +45,7 @@ user1.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png'
 end
 
 5.times do
-  file = URI.open('https://source.unsplash.com//800x600/?person')
+  file = URI.open('https://source.unsplash.com/800x600/?person')
   user = User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
@@ -55,12 +55,42 @@ end
   puts "adding new user"
 end
 
-5.times do
-  file = URI.open('https://source.unsplash.com//800x600/?planet')
-  destination = Destination.create!(
-    name: %w[Mars Moon].sample, # Faker::Space.planet ,
-    flight_time: rand(2..100)
-  )
-  destination.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
-  puts "adding new planet"
-end
+file = URI.open('https://source.unsplash.com/N3BQHYOVq5E/800x600')
+destination = Destination.create!(
+  name: "Mars",
+  flight_time: 15
+)
+destination.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
+puts "adding new planet"
+
+file = URI.open('https://source.unsplash.com/9dTg44Qhx1Q/800x600')
+destination = Destination.create!(
+  name: "Moon",
+  flight_time: 3
+)
+destination.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
+puts "adding new planet"
+
+file = URI.open('https://source.unsplash.com/71W3CWeZF7A/800x600')
+destination = Destination.create!(
+  name: "Mercury",
+  flight_time: 40
+)
+destination.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
+puts "adding new planet"
+
+file = URI.open('https://source.unsplash.com/-5V6VZxSQRo/800x600')
+destination = Destination.create!(
+  name: "Pluto",
+  flight_time: 130
+)
+destination.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
+puts "adding new planet"
+
+file = URI.open('https://source.unsplash.com/Li41RApUAQA/800x600')
+destination = Destination.create!(
+  name: "Mystery Planet",
+  flight_time: 130
+)
+destination.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
+puts "adding new planet"
