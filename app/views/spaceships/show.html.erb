@@ -1,8 +1,8 @@
 <%= render "devise/shared/navbar" %>
-<%= render 'devise/shared/search_form' %>
 
 <div class="container">
   <% if params.key?(:query) && params[:query][:destination].present? %>
+  <div><%= render 'devise/shared/search_form' %></div>
     <h2>Visit <%= @destination.name %> with <%= @spaceship.name %></h2>
       <div class="card-trip">
         <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
