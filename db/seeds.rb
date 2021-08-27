@@ -19,26 +19,25 @@ user1 = User.create!(
 file = URI.open('https://source.unsplash.com/800x600/?person')
 user1.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
 
-1.times do
-  user2 = User.create!(
-    email: "owner@email.com",
-    password: "123123",
-    name: "Jimbo"
+user2 = User.create!(
+  email: "owner@email.com",
+  password: "123123",
+  name: "Jimbo"
+)
+file = URI.open('https://source.unsplash.com/800x600/?person')
+user2.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
+
+5.times do
+  file = URI.open('https://source.unsplash.com/800x600/?rocket')
+  spaceship = Spaceship.create!(
+    name: Faker::Space.moon,
+    capacity: [2, 4, 6, 8].sample,
+    description: Faker::Space.agency,
+    user_id: user2.id,
+    cost: [100, 200, 500, 1000, 5000].sample
   )
-  file = URI.open('https://source.unsplash.com/800x600/?person')
-  user2.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
-  5.times do
-    file = URI.open('https://source.unsplash.com/800x600/?rocket')
-    spaceship = Spaceship.create!(
-      name: Faker::Space.moon,
-      capacity: [2, 4, 6, 8].sample,
-      description: Faker::Space.agency,
-      user_id: user2.id,
-      cost: [100, 200, 500, 1000, 5000].sample
-    )
-    spaceship.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
-    puts "adding new spaceship"
-  end
+  spaceship.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
+  puts "adding new spaceship"
 end
 
 5.times do
