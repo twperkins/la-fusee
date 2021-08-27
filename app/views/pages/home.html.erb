@@ -6,6 +6,19 @@
       <h3 class="white-text">Welcome <%= current_user[:name] %></h3>
         <%= link_to "My spaceships", garage_path, class: "btn btn-flat" %>
         <%= link_to "My bookings",  bookings_path, class: "btn btn-flat" %>
+
+<%= form_tag spaceships_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a movie"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+
+
+
     <% else %>
       <%= link_to 'Login', new_user_session_path, class: 'btn btn-flat' %>
       <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-flat' %>

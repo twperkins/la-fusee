@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
 
   def new
     @spaceship = Spaceship.find(params[:spaceship_id])
-    @destination = Destination.find(params[:query][:destination])
+    @destination = Destination.find(params[:query])
     @booking = Booking.new
     # @booking = Booking.new(booking_params)
     # @booking.destination = @destination

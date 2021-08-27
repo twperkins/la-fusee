@@ -1,5 +1,5 @@
 <%= render "devise/shared/navbar" %>
-<div><%= render 'devise/shared/search_form' %></div>
+<%# <div><%= render 'devise/shared/search_form' %>
 
 <div class="container">
   <h2>Visit <%= @destination.name %> with <%= @spaceship.name %></h2>
@@ -39,6 +39,6 @@
                 class: "btn btn-flat",
                 data: { confirm: "Are you sure?" } %>
   <% else %>
-    <%= link_to "Make a booking", new_spaceship_booking_path(@spaceship,query: {destination: params.dig(:query, :destination)}), class: "btn btn-submit" %>
+    <%= link_to "Make a booking", new_spaceship_booking_path(@spaceship,query: @destination), class: "btn btn-submit" %>
   <% end %>
 </div>
