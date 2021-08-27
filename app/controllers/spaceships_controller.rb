@@ -35,7 +35,7 @@ class SpaceshipsController < ApplicationController
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
     if @spaceship.save
-      redirect_to spaceship_path(@spaceship)
+      redirect_to garage_path
     else
       render 'new'
     end
