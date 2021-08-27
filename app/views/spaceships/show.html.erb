@@ -2,17 +2,20 @@
 <div><%= render 'devise/shared/search_form' %></div>
 
 <div class="container">
-  <h2>Visit <%= @destination.name %> with <%= @spaceship.name %></h2>
+<% @destinations.each do |destination| %>
+  <h2>Your trip 🧳 details to visit <%= destination.name %> with <%= @spaceship.name %> 🚀 are below.</h2>
     <div class="card-trip">
       <div class="img"><%= cl_image_tag @spaceship.image_url.key %></div>
       <div class="card-trip-infos">
         <div>
-          <h2><%= @spaceship.name %></h2>
-          <p><%= @spaceship.description %></p>
+          <h2>Rocket: <%=@spaceship.name %></h2>
+          <p> Description: <%= @spaceship.description %></p>
+          <p> Journey duration: <%= destination.flight_time %> days</p>
         </div>
         <div>
           <h2 class="card-trip-pricing">£<%= @spaceship.capacity * 100 - 0.01 %></h2>
           <p>Up to <%= @spaceship.capacity %> passengers</p>
+
         </div>
       </div>
     </div>
@@ -21,12 +24,13 @@
 
 
   <div class="card-destination">
-    <div class="img"><%= cl_image_tag @destination.image_url.key %></div>
+    <div class="img"><%= cl_image_tag destination.image_url.key %></div>
     <div class="card-destination-infos">
-      <h2><%= @destination.name %></h2>
-      <p>Prepare to blast off for a <%= @destination.flight_time %> day journey</p>
+      <h2><%= destination.name %></h2>
+      <p>Prepare to blast off for a <%= destination.flight_time %> day journey</p>
     </div>
   </div>
+  <%end%>
   <br>
   <br>
 

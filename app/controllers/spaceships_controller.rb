@@ -5,14 +5,14 @@ class SpaceshipsController < ApplicationController
   def index
     @spaceships = Spaceship.all
     if params[:query].present?
-      @spaceships = Spaceship.where(capacity: params[:query][:number_of_travellers])
+      @spaceships = Spaceship.where(capacity: params[:query])
     else
       @spaceships = Spaceship.all
     end
   end
 
   def show
-    @destination = Destination.find(params[:query][:destination])
+    @destinations = Destination.all
   end
 
   def garage
