@@ -58,7 +58,7 @@ end
 5.times do
   file = URI.open('https://source.unsplash.com//800x600/?planet')
   destination = Destination.create!(
-    name: %w[Mars Moon].sample, # Faker::Space.planet ,
+    name: Faker::Space.planet,
     flight_time: rand(2..100)
   )
   destination.image_url.attach(io: file, filename: 'test.png', content_type: 'image/png')
