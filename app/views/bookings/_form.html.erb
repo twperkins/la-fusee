@@ -5,7 +5,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :price, label: "Price (£)", input_html:{ value:"#{@spaceship.cost}" }, readonly: true %>
+    <%= f.input :price, label: "Price (£)", input_html:{ value:"#{@spaceship.cost * @destination.flight_time}" }, readonly: true %>
     <%= f.input :destination, input_html:{ value:"#{@destination.name}" }, readonly: true %>
     <%= f.input :depart, as: :date, required: true, input_html: { min: Date.today }, html5: true %>
     <%= f.input :arrive, label: "Days flight", input_html: { value: "#{@destination.flight_time}" }, readonly: true %>
