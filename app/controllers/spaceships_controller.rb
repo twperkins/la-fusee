@@ -12,10 +12,10 @@ class SpaceshipsController < ApplicationController
   end
 
   def show
-    if params[:query].blank?
-      @destination = Destination.first
-    else
+    if params.key?(:query)
       @destination = Destination.find(params[:query][:destination])
+    else
+      @destination = Destination.first
     end
   end
 
