@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 64px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   position: relative;
@@ -29,5 +29,5 @@
 }
 
 .min-height {
-min-height: calc(100vh - 100px);
+min-height: calc(100vh - 64px);
 }

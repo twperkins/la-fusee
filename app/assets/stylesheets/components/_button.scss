@@ -1,10 +1,12 @@
 .btn-flat {
   color: white;
-  padding: 8px 24px;
-  margin: 8px;
+  padding: 6px 16px;
+  margin: 4px;
   border-radius: 4px;
   background: #ff8c4a;
   transition: 0.3s ease;
+  font-size: 0.8rem;
+  font-weight: 300;
 }
 
 .btn-flat:hover {
